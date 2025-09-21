@@ -1,0 +1,47 @@
+PART 1: Introduction to Django | Getting started with Django | Installing and using virtualenv with Python 3
+A. Django Create Project and Virtual Enviroment
+
+1.) django--admin startproject "yourProjectName"
+2.) python manage.py startapp "yourAppName"
+3.) python manage.py runserver
+4.) pip install virtualenv
+5.) virtualenv "yourVirtualEnviromentName"
+6.) "yourVirtualEnviromentName"\Scripts\activate
+7.) pip freeze > requirements.txt
+8.) pip install -r requirements.txt
+
+
+
+PART 2: URL dispatcher | Requests and Responses
+A.) URL Scheme
+
+from django.urls import path
+
+urlpatterns = [
+    path('article/<int:age>/',views.myage,name="myage"),
+    path('article/<int:age>/<str:name>/',views.intro,name="intro"),
+]
+
+B.) Responses
+
+views.py
+
+from django.http import JsonResponse
+from django.http import HttpResponse
+
+C.) References
+https://www.djangoproject.com/
+
+
+
+
+Part3: Django Templates + How to Render a Template in Django Project
+A.) settings.py
+Note: First Create templates and static folder
+'DIRS': [os.path.join(BASE_DIR, 'templates')]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+
+B.) Create templates and render

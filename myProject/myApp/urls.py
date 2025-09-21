@@ -1,0 +1,18 @@
+# Created urls.py file in myApp directory
+
+from django.urls import path
+from . import views   # Import views from the current app
+
+urlpatterns = [
+    path('', views.myfunctioncall, name="index"),  # Map root URL to myfunctioncall view
+    # This path is for the root URL of this app
+
+    path('about/', views.myfunctionabout, name="about"),
+    # This path is for the 'about/' URL of this app
+
+    path('add/<int:a>/<int:b>', views.add, name="add"),
+
+    path('intro/<str:name>/<int:age>/', views.intro, name="intro"),
+
+    path('myFirstPage/', views.myFirstPage, name="myFirstPage"),
+]
