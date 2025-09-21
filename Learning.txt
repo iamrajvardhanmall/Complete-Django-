@@ -45,3 +45,19 @@ STATICFILES_DIRS = [
 ]
 
 B.) Create templates and render
+
+
+
+
+Part4:  Django Templates + Render a Template in Django Project (Part 2)
+A.) Templates
+
+https://docs.djangoproject.com/en/3.0/ref/templates/language/
+
+{% extends 'index.html' %}
+{% block title %}Second Page{% endblock %}
+{% block content %}
+{% endblock %}
+
+B.) Create templates and render
+c.) Creating Navbar and footer for all pages
