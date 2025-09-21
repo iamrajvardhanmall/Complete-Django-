@@ -185,3 +185,16 @@ PART-7:  Getting Started with Images in Django (Part-2)
 
 
 PART-8: Image inside a Template
+myApp/urls.py: line: 27-32
+myApp/views.py: line:54-71
+imagepage3.html
+imagepage4.html
+imagepage5.html
+
+
+
+
+
+
+
+PART-9: How to Use Bootstrap 4 Forms With Django
