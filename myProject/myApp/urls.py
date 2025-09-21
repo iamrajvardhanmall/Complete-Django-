@@ -15,4 +15,6 @@ urlpatterns = [
     path('intro/<str:name>/<int:age>/', views.intro, name="intro"),
 
     path('myFirstPage/', views.myFirstPage, name="myFirstPage"),
+
+    path('mySecondPage/', views.mySecondPage, name="mySecondPage"),
 ]

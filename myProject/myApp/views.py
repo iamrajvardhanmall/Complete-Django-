@@ -24,3 +24,6 @@ def intro(request, name, age):
 
 def myFirstPage(request):
     return render(request, 'index.html')
+
+def mySecondPage(request):
+    return render(request, 'second.html')
