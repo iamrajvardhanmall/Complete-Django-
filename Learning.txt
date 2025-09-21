@@ -10,6 +10,76 @@ A. Django Create Project and Virtual Enviroment
 7.) pip freeze > requirements.txt
 8.) pip install -r requirements.txt
 
+1.) django-admin startproject "yourProjectName"
+---> Purpose: Creates a new Django project.
+---> What happens:
+    ---> Generates a folder with your project name.
+    ---> Inside, you’ll find:
+        ---> manage.py → command-line utility to interact with the project.
+        ---> A project folder (same as your project name) with settings.py, urls.py, wsgi.py, etc.
+---> Use: Starting point of every Django project.
+
+2.) python manage.py startapp "yourAppName"
+---> Purpose: Creates a new Django app inside the project.
+---> What happens:
+    ---> Creates a folder with files like models.py, views.py, apps.py, etc.
+---> Use:
+    ---> Each app handles a specific functionality (e.g., blog, accounts, shop).
+---> Projects are just collections of apps.
+
+3.) python manage.py runserver
+---> Purpose: Runs Django’s development web server.
+---> What happens:
+    ---> Starts a lightweight local server (default: http://127.0.0.1:8000/).
+    ---> You can test your website in a browser.
+---> Use: See your Django project live while developing.
+
+4.) pip install virtualenv
+---> Purpose: Installs the Virtualenv tool.
+---> What happens:
+    ---> Allows you to create isolated Python environments.
+---> Use: Keeps project dependencies separate from system-wide Python packages.
+
+5.) virtualenv "yourVirtualEnviromentName"
+---> Purpose: Creates a new virtual environment.
+---> What happens:
+    ---> Makes a folder containing its own Python interpreter and libraries.
+---> Use: Helps avoid conflicts between projects that require different package versions.
+
+6.) "yourVirtualEnviromentName"\Scripts\activate
+---> Purpose: Activates the virtual environment (Windows command).
+---> What happens:
+    ---> Your terminal switches to use the environment’s Python and pip.
+    ---> Installed packages go only inside this environment.
+---> Use: Ensures your Django project runs with the right dependencies.
+---> (On Linux/Mac → source yourVirtualEnv/bin/activate)
+
+7.) pip freeze > requirements.txt
+---> Purpose: Exports installed packages into a requirements.txt file.
+---> What happens:
+    ---> Lists package names + versions, for example:
+        Django==5.1
+        djangorestframework==3.16.0
+---> Use: Lets others (or you on another machine) recreate the exact same setup.
+
+8.) pip install -r requirements.txt
+---> Purpose: Installs packages from requirements.txt.
+--> What happens:
+    ---> Reads the file line by line and installs those exact versions.
+--> Use: Quickly sets up your Django environment on a new computer/server.
+
+✅ Summary (Typical Workflow):
+1.) Start Django project → startproject
+2.) Add apps → startapp
+3.) Run project locally → runserver
+4.) Set up isolated environment → virtualenv + activate
+5.) Save dependencies → pip freeze > requirements.txt
+6.) Reinstall dependencies anywhere → pip install -r requirements.txt
+
+
+
+
+
 
 
 PART 2: URL dispatcher | Requests and Responses
@@ -35,6 +105,9 @@ https://www.djangoproject.com/
 
 
 
+
+
+
 Part3: Django Templates + How to Render a Template in Django Project
 A.) settings.py
 Note: First Create templates and static folder
@@ -45,6 +118,9 @@ STATICFILES_DIRS = [
 ]
 
 B.) Create templates and render
+
+
+
 
 
 
@@ -65,7 +141,10 @@ c.) Creating Navbar and footer for all pages
 
 
 
-Part5:  Django Templates + Render a Template in Django Project (Part 3)
+
+
+
+Part-5:  Django Templates + Render a Template in Django Project (Part 3)
 A.) For Loop Django Project
 <ul>
 {% for athlete in athlete_list %}
@@ -81,3 +160,20 @@ C.) If Else Django Template
 {% else %}
     No athletes.
 {% endif %}
+
+
+
+
+
+PART-6: Getting Started with Images in Django (Part-1)
+A.) Image inside a Template
+{% load static %}
+<img src="{% static "myApp/example.jpg" %} alt = "My  image">
+
+
+
+
+
+
+
+PART-7:  Getting Started with Images in Django (Part-2)
