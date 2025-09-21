@@ -27,3 +27,20 @@ def myFirstPage(request):
 
 def mySecondPage(request):
     return render(request, 'second.html')
+
+def myThirdPage(request):
+    var = "Hello, World"
+    greeting = "Hello Bhai kya haal chal hai"
+    fruits = ["apple", "banana", "cherry"]
+    num1, num2 = 5, 10
+    ans = num1 > num2
+    # print(ans)
+    mydictionary = {
+        "var": var,
+        "msg": greeting,
+        "fruits": fruits,
+        "num1": num1,
+        "num2": num2,
+        "ans": ans,
+    }
+    return render(request, 'third.html', context=mydictionary)
