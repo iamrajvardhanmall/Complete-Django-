@@ -19,4 +19,6 @@ urlpatterns = [
     path('mySecondPage/', views.mySecondPage, name="mySecondPage"),
 
     path('myThirdPage/', views.myThirdPage, name="myThirdPage"),
+
+    path('myimagepage/', views.myimagepage, name="myimagepage"),
 ]
