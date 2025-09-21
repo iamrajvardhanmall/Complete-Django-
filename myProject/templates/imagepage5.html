@@ -4,12 +4,15 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-6" style="border: 2px solid red;">
+        {% if var %}
+        <div class="col-md-12" style="border: 2px solid black; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
             <img src="{% static 'Django.jpeg' %}" class="img-fluid" alt="Responsive image">
         </div>
-        <div class="col-md-6" style="border: 2px solid blue;">
+        {% else %}
+        <div class="col-md-12" style="border: 2px solid black; border-radius: 5px; display: flex; justify-content: center; align-items: center;">
             <img src="{% static 'Python.jpeg' %}" class="img-fluid" alt="Responsive image">
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

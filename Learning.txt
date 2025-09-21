@@ -177,3 +177,11 @@ A.) Image inside a Template
 
 
 PART-7:  Getting Started with Images in Django (Part-2)
+
+
+
+
+
+
+
+PART-8: Image inside a Template
