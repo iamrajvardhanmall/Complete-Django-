@@ -199,3 +199,52 @@ imagepage5.html
 
 PART-9: How to Use Bootstrap 4 Forms With Django
 a.) https://getbootstrap.com/docs/4.3/components/forms/
+--> Work flow:
+i.) Create url in url.py
+ii.) create a function in view.py file named myform.html
+iii.) Work on html file
+
+
+
+
+
+
+
+PART-10: How to Use Bootstrap 4 Forms With Django (Backend Code)
+i.) Create url in url.py
+ii.) create a function in view.py file named submitmyfrom.html
+--> Understanding about GET and POST request method
+
+
+
+
+
+
+PART-11: Working with forms
+a.) https://docs.djangoproject.com/en/3.0/topics/forms
+b.) https://docs.djangoproject.com/en/3.0/topics/forms/#widgets
+c.) https://docs.djangoproject.com/en/3.0/ref/forms/widgets/
+d.) https://getbootstrap.com/docs/4.3/components/forms/
+
+i.) Create from.py file
+ii.) myform2 function in views.py
+
+NOTE: In this part we understand the form if request method is post
+
+
+
+
+
+
+
+PART - 12: Working with forms(part 2)
+i.) Learned about POST request in form and used submit buttonn
+
+
+
+
+
+
+
+
+PART - 13: Alert Handling in Forms (Part 1)
