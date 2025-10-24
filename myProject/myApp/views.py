@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from .forms import *
 
 # Create your views here.
 def myfunctioncall(request):
@@ -69,3 +70,69 @@ def myimagepage5(request, imagename):
         "var": var
     }
     return render(request, 'imagepage5.html', context=mydictionary)
+
+def myformget(request):
+    return render(request, 'myformget.html')
+
+# def submitmyform(request):
+#     mydict = {
+#         "var1": request.GET['mytext'],  # or request.POST['mytext'] based on the form method
+#         # We are using GET method in the form, so we use request.GET here.
+#         # If we were using POST method, we would use request.POST here.
+#         "var2": request.GET['mytextarea'], # or request.POST['mytextarea'] based on the form method
+#         "method": request.method
+#     }
+#     return JsonResponse(mydict)
+
+def myformpost(request):
+    return render(request, 'myformpost.html')
+
+def submitmyform(request):
+    mydict = {
+        "var1": request.POST['mytext'],  # or request.POST['mytext'] based on the form method
+        # We are using GET method in the form, so we use request.GET here.
+        # If we were using POST method, we would use request.POST here.
+        "var2": request.POST['mytextarea'], # or request.POST['mytextarea'] based on the form method
+        "method": request.method
+    }
+    return JsonResponse(mydict)
+
+
+def myform(request):
+    return render(request, 'myform.html')
+
+
+
+def submitmyform(request):
+    mydict = {
+        "var1": request.POST['mytext'],
+        "var2": request.POST['mytextarea'],
+        "method": request.method,
+
+    }
+    return JsonResponse(mydict)
+
+
+
+def myform2(request):
+    if request.method == "POST":
+        # POST request means submitting the form
+        form = feedbackForm(request.POST)  # Create a form instance with POST data
+        if form.is_valid():
+            title = request.POST['title']
+            subject= request.POST['subject']
+            print(title)
+            print(subject)
+            var = str("Form Submitted Successfully " + str(request.method))
+            return HttpResponse(var)
+        else:
+            mydict = {
+                "form": form
+            }
+            return render(request, 'myform2.html', context=mydict)
+    elif request.method == "GET":
+        form = feedbackForm()   # Create an empty form instance
+        mydict = {
+            "form": form
+        }
+        return render(request, 'myform2.html', context=mydict)
