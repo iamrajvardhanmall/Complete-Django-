@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include  # include function is used to include urls from other apps
 
 urlpatterns = [
+    path('', include('rootapp.urls')), # Added to route the root URL to rootapp
     path('admin/', admin.site.urls),
     path('calculatorapp/', include('calculatorapp.urls')),  # Added trailing slash
 ]
