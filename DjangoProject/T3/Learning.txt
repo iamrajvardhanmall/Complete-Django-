@@ -1,0 +1,144 @@
+A QuerySet in Django is a collection of database records that works like a Python list but offers more features for handling data efficiently.
+a.) Allows filtering, sorting, and organizing records before they are fetched from the database.
+b.) Uses lazy loading, so data is retrieved only when the QuerySet is used.
+c.) Supports chaining multiple filters to get precise results.
+d.) Fetches only the required data, which improves performance.
+
+
+
+
+1.) get() Method:
+The get() method returns exactly one object that matches the conditions provided. It has specific behaviors and use cases as described below:
+a.) Raises a DoesNotExist exception if no object is found.
+b.) Raises a MultipleObjectsReturned exception if more than one object matches.
+c.) Ideal when there is only one record for the given lookup.
+d.) Unlike filter(), get() returns a single model instance, not a QuerySet.
+
+Syntax:
+       Model.objects.get(**kwargs)
+--> Model is a Django model.
+--> kwargs are the conditions used to find the object.
+
+Example: 
+a.) Using get() with a Book Model
+--> Consider a Book model with fields like title and author. To get the book titled "The Great Gatsby":
+CODE:
+    from app.models import Book
+    try:
+        book = Book.objects.get(title='The Great Gatsby')
+        # Use the book object here
+    except Book.DoesNotExist:
+        print("No book found with that title.")
+    except Book.MultipleObjectsReturned:
+        print("Multiple books found with that title.")
+
+--> Book.objects.get(title='The Great Gatsby') attempts to fetch a single Book object with the specified title.
+--> If no object matches, a DoesNotExist exception is raised.
+--> If more than one object matches, a MultipleObjectsReturned exception is raised.
+--> Using try-except ensures the program handles these cases gracefully without crashing.
+
+b.) Using Multiple Conditions (AND)
+--> To use multiple conditions with the get() method in Django:
+CODE:
+    try:
+        book = Book.objects.get(title='The Great Gatsby', author='F. Scott Fitzgerald')
+    except Book.DoesNotExist:
+        print("No matching book found.")
+    except Book.MultipleObjectsReturned:
+        print("More than one book matches your query.")
+
+--> Book.objects.get(title='The Great Gatsby', author='F. Scott Fitzgerald') tries to fetch a single Book object that matches both conditions.
+--> Django treats multiple keyword arguments in get() as an AND operation, meaning all conditions must be true for the object to be returned.
+
+
+**Using Primary Key with get()**:
+--> Fetching objects by their primary key (usually id) is a common and efficient way to retrieve a single record:
+CODE:
+    book = Book.objects.get(pk=1)  # Get book with primary key 1
+--> pk is a shortcut for the model’s primary key field.
+--> This query retrieves the exact object with id=1.
+
+
+**Using get() in the Django Shell**:
+--> The Django shell is an interactive Python environment for experimenting with models and QuerySets in real time. It’s perfect for:
+a.) Testing database queries
+b.) Exploring data
+c.) Debugging without writing views or templates
+Example: Fetching a Book Object Using get()
+--> Consider the book model. Data can be fetched from it using the Python shell:
+1.) Activate the Shell:
+CODE:
+    python manage.py shell
+2.) Use the following commands:
+>>> from app.models import Book
+>>> book = Book.objects.get(id=2)
+>>> print(book)
+NOTE:  This should print the details of book with id = 2.
+
+
+
+
+
+
+***Django QuerySet Filtering***:
+QuerySet filtering helps retrieve only the required records from the database, making data handling fast and efficient.
+a.) filter() and exclude() select or remove records based on given conditions.
+b.) Lookup expressions like exact, icontains, lte, and gte refine query accuracy.
+c.) QuerySets are lazy and support chaining multiple conditions for precise results.
+d.) Q objects enable advanced filtering using OR, AND, and NOT operations.
+
+
+**QuerySet Filtering Implementation**:
+--> Consider a project named 'projectApp' with a model 'User'. Filtering datasets using Django’s filter(), exclude(), and advanced Q objects with a model named User.
+
+Step 1: Define the User Model
+--> In projectApp/models.py, create a User model with fields for user_name, city, and country:
+CODE: (In models.py)
+Step 2: Register the Model in Django Admin
+--> To make the User model accessible in the Django Admin interface, register it in projectApp/admin.py:
+CODE:
+    from django.contrib import admin
+    from .models import User
+
+    admin.site.register(User)
+NOTE: To access the User model through the Django admin panel, create a superuser:
+CODE: 
+    python manage.py createsuperuser
+    {username: iamrajvardhanmallT3, password: #07072005Raj}
+
+QuerySet Filtering Examples:
+--> With the User model in place, it’s time to explore how to filter data using QuerySets.
+CODE:
+    >>> from T3.models import user
+a.) Filtering All Users: To retrieve all users from a specific country, use filter():
+CODE:
+>>> users = user.objects.filter(country = 'INDIA')
+    NOTE: This retrieves all users where the country is 'India':
+b.) Excluding Specific Records: To exclude records that match a condition, use exclude():
+CODE:
+>>> users = user.objects.filter(country='INDIA').exclude(city='GKP')
+>>> print(users)   
+NOTE: This retrieves all users from India, excluding those from Agra.
+c.) Using Q Objects for Advanced Filtering: Q objects allow for more complex queries, like OR conditions:
+CODE:
+>>> from django.db.models import Q
+>>> users = user.objects.filter(Q(country='INDIA') | Q(city='New York'))
+>>> print(users)
+NOTE: This returns users who are from either India or New York.
+
+--> Code for AND Operation (&):
+>>> from django.db.models import Q
+# Users who are from 'India' AND live in the city of 'Delhi'
+>>> users = User.objects.filter(Q(country='India') & Q(city='Delhi'))
+
+--> Code for NOT Operation (~):
+>>> from django.db.models import Q
+# Users from 'India' who are NOT from the city of 'Delhi'
+>>> users = User.objects.filter(Q(country='India') & ~Q(city='Delhi'))
+
+
+
+
+
+
+***Django QuerySet - Order By***:

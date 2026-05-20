@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'DjangoApp',  # Added the DjangoApp
     'T2',   # Added the T2 App
+    'T3'    # Added the T3 App
     
 ]
 
