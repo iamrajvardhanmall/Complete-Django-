@@ -24,4 +24,5 @@ urlpatterns = [
     path('DjangoApp/', include("DjangoApp.urls")),
     path('T2/', include("T2.urls")),
     path('T3/', include("T3.urls")),
+    path('T4/', include("T4.urls")),
 ]

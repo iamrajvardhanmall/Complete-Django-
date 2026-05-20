@@ -1,0 +1,3 @@
+Django URLs:
+--> Views are Python functions or classes that handle HTTP requests and return HTTP responses. To make views accessible through specific URLs, Django uses a URL configuration system known as URLConf. This system maps URL patterns to corresponding views, enabling precise request routing.
+
