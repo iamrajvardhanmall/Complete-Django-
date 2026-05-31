@@ -70,3 +70,22 @@ iii.) path('books/') matches the book listing page.
 iv.) Using name='...' allows references in templates using {% url 'name' %} and in Python code using reverse().
 
 
+
+
+
+
+***Example: Basic Django URL Routing with HTML Pages***:
+1. Define views in views.py:
+CODE:
+    from django.http import HttpResponse
+    from django.shortcuts import render
+
+    def home_view(request):
+        return render(request, 'home.html')
+
+    def about_view(request):
+        return render(request, 'about.html')
+
+    def contact_view(request):
+        return render(request, 'contact.html')
+
