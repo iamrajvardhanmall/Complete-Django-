@@ -89,3 +89,27 @@ CODE:
     def contact_view(request):
         return render(request, 'contact.html')
 
+
+
+
+
+***Path Converters***:
+--> Path converters capture dynamic values from URLs and pass them as arguments to views. They are specified inside angle brackets < > in URL patterns.
+i.) int: matches positive integers and converts the captured value to a Python int.
+ii.) str: matches any non-empty string excluding the path separator /.
+iii.) slug: matches letters, numbers, hyphens, and underscores, suitable for readable URLs.
+iv.) path: matches any non-empty string, including the path separator /.
+v.) uuid: matches a valid UUID string and converts it to a Python UUID object.
+CODE:
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [
+        path('books/<int:pk>/', views.book_detail, name='book_detail'),
+        path('books/<str:genre>/', views.books_by_genre, name='books_by_genre'),
+        path('books/<slug:slug>/', views.book_by_slug, name='book_by_slug'),
+    ]
+--> In the above example:
+a.) <int:pk> passes an integer primary key to the view.
+b.) <str:genre> passes a string representing the book genre.
+c.) <slug:slug> passes a slug string for human-readable URLs.
