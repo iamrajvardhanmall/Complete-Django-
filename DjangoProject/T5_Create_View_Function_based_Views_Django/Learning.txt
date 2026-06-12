@@ -1,0 +1,24 @@
+--> A Create View in Django allows adding new records to the database through a form.
+a.) Shows a form for entering new data.
+b.) Checks the submitted data for correctness.
+c.) Saves the new record to the database if the form is valid.
+d.) Provides a simple way to collect and store user input.
+
+
+CODE: In app_name/models.py
+
+
+--> After creating this model, we need to run two commands in order to create Database.
+a.) Python manage.py makemigrations
+b.) Python manage.py migrate
+
+--> Create a forms.py file in the geeks folder and add the following code to create a ModelForm for this model, as ModelForm automatically 
+    generates form fields based on the model’s fields and is used to collect and validate user input.
+CODE: In app_name/forms.py
+
+--> With the backend setup complete, create a view and template to handle the form in app_name/views.py:
+CODE: In app_name/views.py
+
+--> Create a template in templates/create_view.html:
+
+NOTE: By this we can create the form in UI and submit the response in the databases.
