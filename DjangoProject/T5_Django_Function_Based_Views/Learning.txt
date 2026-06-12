@@ -1,0 +1,66 @@
+--> Function-Based Views (FBVs) in Django are Python functions used to handle web requests and send back web responses.
+a.) Each FBV is linked to a specific URL and controls what happens when that URL is visited.
+b.) Every view function receives an HttpRequest object from the browser.
+c.) The view returns an HttpResponse, which can be HTML, a redirect, or an error page.
+d.) FBVs provide a clear and straightforward way to define application logic.
+
+
+
+
+
+
+***Function-Based List View***
+In app_name/model.py:
+CODE:
+    from django.db import models
+    
+    # declare a new model with a name "GeeksModel"
+    class GeeksModel(models.Model):
+
+        # fields of the model
+        title = models.CharField(max_length = 200)
+        description = models.TextField()
+
+        # renames the instances of the model with their title name
+        def __str__(self):
+            return self.title
+
+--> After creating this model, we need to run two commands listed below in order to create Database for the same:
+CODE:
+    python manage.py makemigrations
+    python manage.py migrate
+
+
+--> Next, register the model to view it and its data in the Django admin panel.
+--> To manage your data through the Django Admin interface, administrative privileges are needed. By default, no user is created, so superuser account must be created. Run the following command in your terminal:
+--> I have already registered for the project
+
+CODE: In app_name/admin.py
+
+
+
+--> Create a view and template to display and handle the form. Templates are HTML files used to display data.
+CODE: In app_name/views.py
+
+
+--> Map the view to a specific URL so that Django knows which function to execute when a user visits a link.
+CODE: In app_name/urls.py
+
+--> Create a template in app_name/templates/list_view.html:
+
+NOTE: Similarly, function based views can be implemented with logics for create, update, retrieve and delete views.
+
+
+
+
+
+
+***Django Function Based Views - CRUD Operations***
+--> Function-Based Views in Django also support CRUD operations (Create, Retrieve, Update and Delete), allowing you to interact with database models to perform common web application tasks.
+a.) Create: create or add new entries in a table in the database. 
+b.) Retrieve: read, retrieve, search, or view existing entries as a list (List View) or retrieve a particular entry in detail (Detail View)
+c.) Update: update or edit existing entries in a table in the database 
+d.) Delete: delete, deactivate, or remove existing entries in a table in the database
+
+--> These operations power common features like user management, blog posts, and product catalogs, making Function-Based Views essential for building dynamic web applications.
+
