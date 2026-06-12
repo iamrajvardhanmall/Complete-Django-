@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'DjangoApp',  # Added the DjangoApp
     'T2',   # Added the T2 App
     'T3',   # Added the T3 App
-    'T4'    # Added the T4 App
+    'T4',    # Added the T4 App
+    'T5_views_in_django',   # Added the T5_views_in_django App
+    
     
 ]
 

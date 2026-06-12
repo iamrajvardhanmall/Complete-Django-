@@ -25,4 +25,6 @@ urlpatterns = [
     path('T2/', include("T2.urls")),
     path('T3/', include("T3.urls")),
     path('T4/', include("T4.urls")),
+    path('T5_views_in_django/', include("T5_views_in_django.urls")),
+    
 ]
