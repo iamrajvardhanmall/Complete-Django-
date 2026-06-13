@@ -1,0 +1,31 @@
+--> A Detail View is used to show information about one specific record, such as a single post, product, or user profile.
+a.) Retrieves one record from the database using its ID or another unique value.
+b.) Sends that record to a template for rendering.
+c.) Displays the full details of the selected item.
+d.) Provides a clear view of one specific database entry.
+
+
+CODE: In app_name/models.py
+
+--> After creating this model, we need to run two commands in order to create Database for the same.  
+a.) Python manage.py makemigrations
+b.) Python manage.py migrate
+
+--> Create instances of this model using the Django shell by running the following command in the terminal: 
+IN TERMINAL: Python manage.py shell
+--> Enter following commands:
+>>> from T5_Detail_View_Function_based_Views_Django.models import rajModel
+>>> rajModel.objects.create(title="title1", description="1").save()
+>>> rajModel.objects.create(title="title2", description="2").save()
+>>> rajModel.objects.create(title="title3", description="3").save()
+
+--> For a Detail View, a unique identifier is required to retrieve a specific model instance, usually the primary key (id). This identifier needs to be defined in urls.py.
+CODE: In app_name/urls.py
+
+--> Create a view and template to handle this functionality. In geeks/views.py:
+CODE: In app_name/views.py
+
+--> Create a template in templates/detail_view.html:
+
+
+NOTE: The Detail View is now working correctly. Specific fields can also be displayed based on the required usage in different forms. Often, instead of using the id, a slug is used to define the Detail View for better readability and SEO-friendly URLs.
