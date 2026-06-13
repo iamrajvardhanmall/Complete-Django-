@@ -1,0 +1,55 @@
+--> A List View is used to show multiple records from a database, such as posts, products, or users.
+a.) Retrieves all required records from the database.
+b.) Passes the data to a template for rendering.
+c.) Displays the records in a clear format like a list or table.
+d.) Provides an easy way to show collections of items on a page.
+
+
+Step 1: Define a Model
+CODE: In app_name/models.py
+
+Step 2: Apply Migrations
+--> Run the following commands to create the corresponding database table
+CODE:
+    python manage.py makemigrations
+    python manage.py migrate
+
+Step 3: Create Sample Data
+--> Use Django's shell to create model instances:
+--> In Terminal: python manage.py shell
+Enter following commands in shell:
+>>> from T5_List_View_Function_based_Views_Django.models import T5_List_view_function_raj
+>>> T5_List_view_function_raj.objects.create(title="title1", description="description1")
+>>> T5_List_view_function_raj.objects.create(title="title2", description="description2")
+>>> T5_List_view_function_raj.objects.create(title="title3", description="description3")
+
+NOTE: To exit shell enter: exit()
+
+
+
+--> Step 4: Create the List View
+In app_name/views.py, define a function-based view to fetch and render the model instances:
+CODE: In app_name/views.py
+
+--> Step 5: Create the Template
+CODE: In templates/list_view.html, add the following HTML to display the data:
+
+
+--> Sorting the List (Descending Order)
+You can order the results in reverse (newest first) by modifying the view:
+CODE: In app_name/views.py
+NOTE: 
+order_by("-id"): sorts the items in descending order of their ID.
+
+
+
+***Filtering the List***
+--> You can also filter the data shown in the list view. For example, let’s add a new entry:
+--> Launch the shell using the below command:
+In Terminal: python manage.py shell 
+>>> from T5_List_View_Function_based_Views_Django.models import T5_List_view_function_raj
+>>> T5_List_view_function_raj.objects.create(title = "Naveen", description = "GFG is Best").save()
+
+
+--> To display only items with the word “title” in their title, update the view:
+NOTE: title__icontains="title" filters entries whose title contains the word "title", case-insensitively.
