@@ -5,3 +5,7 @@ from .models import rajModel
 
 admin.site.register(rajModel)
 
+
+
+
+
