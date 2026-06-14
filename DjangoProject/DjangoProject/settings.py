@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'T3',   # Added the T3 App
     'T4',    # Added the T4 App
     'T5_views_in_django',   # Added the T5_views_in_django App
+    'T5_Django_Function_Based_Views',   # Added the T5_Django_Function_Based_Views App
+    'T5_Create_View_Function_based_Views_Django',   # Added the T5_Create_View_Function_based_Views_Django App
+    'T5_List_View_Function_based_Views_Django',   # Added the T5_List_View_Function_based_Views_Django App
+    'T5_Detail_View_Function_based_Views_Django',   # Added the T5_Detail_View_Function_based_Views_Django App
+    'T5_Update_View_Function_based_Views_Django',   # Added the T5_Update_View_Function_based_Views_Django App
+    'T5_Delete_View_Function_based_Views_Django',   # Added the T5_Delete_View_Function_based_Views_Django App
     
     
 ]

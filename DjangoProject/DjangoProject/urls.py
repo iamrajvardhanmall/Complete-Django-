@@ -26,5 +26,11 @@ urlpatterns = [
     path('T3/', include("T3.urls")),
     path('T4/', include("T4.urls")),
     path('T5_views_in_django/', include("T5_views_in_django.urls")),
+    path('T5_Django_Function_Based_Views/', include("T5_Django_Function_Based_Views.urls")),
+    path('T5_Create_View_Function_based_Views_Django/', include("T5_Create_View_Function_based_Views_Django.urls")),
+    path('T5_List_View_Function_based_Views_Django/', include("T5_List_View_Function_based_Views_Django.urls")),
+    path('T5_Detail_View_Function_based_Views_Django/', include("T5_Detail_View_Function_based_Views_Django.urls")),
+    path('T5_Update_View_Function_based_Views_Django/', include("T5_Update_View_Function_based_Views_Django.urls")),
+    path('T5_Delete_View_Function_based_Views_Django/', include("T5_Delete_View_Function_based_Views_Django.urls")),
     
 ]
