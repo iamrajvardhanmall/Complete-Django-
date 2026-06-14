@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete View</title>
+</head>
+<body>
+    <div class="main">
+        <!-- create a form -->
+         <form method="POST">
+            <!-- Security token by Django -->
+             {% csrf_token %}
+             <p>Are you sure you want to delete this item?</p>
+             <p><strong>{{ obj }}</strong></p>
+             <input type="submit" value="Yes, Delete">
+             <a href="/T5_Delete_View_Function_based_Views_Django/">Cancel</a>
+         </form>
+    </div>
+    
+</body>
+</html>

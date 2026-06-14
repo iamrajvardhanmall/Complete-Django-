@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete View - List</title>
+</head>
+<body>
+    <h1>Items to Delete</h1>
+    
+    {% if obj %}
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Item</th>
+                <th>Action</th>
+            </tr>
+            {% for item in obj %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item }}</td>
+                <td>
+                    <a href="/T5_Delete_View_Function_based_Views_Django/{{ item.id }}/delete">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No items found.</p>
+    {% endif %}
+</body>
+</html>

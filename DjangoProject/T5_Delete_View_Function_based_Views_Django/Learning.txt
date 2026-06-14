@@ -1,0 +1,14 @@
+--> A Delete View is used to remove a record from the database. It is useful when users need to delete items like blog posts, products, or profiles. When using function-based Delete Views, we can:
+a.) Fetch the record to delete from the database using its ID (or another unique field).
+b.) Display a confirmation page (optional but recommended).
+c.) Delete the record if confirmed.
+d.) Redirect to another page after deletion.
+
+CODE: In app_name/models.py
+
+--> After creating this model, we need to run two commands in order to create Database for the same. 
+CODE:
+    Python manage.py makemigrations
+    Python manage.py migrate
+
+NOTE: Register model in admin.py
