@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'T5_Update_View_Function_based_Views_Django',   # Added the T5_Update_View_Function_based_Views_Django App
     'T5_Delete_View_Function_based_Views_Django',   # Added the T5_Delete_View_Function_based_Views_Django App
     'T6_Django_Class_Based_view',   # Added the T6_Django_Class_Based_view
+    'T7_Django_Templates'  # Added the T7_Django_Templates 
     
     
 ]
