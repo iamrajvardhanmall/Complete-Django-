@@ -32,5 +32,6 @@ urlpatterns = [
     path('T5_Detail_View_Function_based_Views_Django/', include("T5_Detail_View_Function_based_Views_Django.urls")),
     path('T5_Update_View_Function_based_Views_Django/', include("T5_Update_View_Function_based_Views_Django.urls")),
     path('T5_Delete_View_Function_based_Views_Django/', include("T5_Delete_View_Function_based_Views_Django.urls")),
+    path('T6_Django_Class_Based_view/', include("T6_Django_Class_Based_view.urls")),
     
 ]

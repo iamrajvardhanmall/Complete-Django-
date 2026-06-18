@@ -1,0 +1,32 @@
+--> Class-Based Views (CBVs) in Django are Python classes that handle web requests and send responses in a structured and reusable way.
+a.) Each HTTP method, such as GET or POST, is handled in its own method for better organization.
+b.) Shared features can be placed in base classes or mixins and reused through inheritance.
+c.) Django offers built-in CBVs like CreateView, ListView, and DetailView for common tasks.
+d.) CBVs help reduce repeated code and make view logic cleaner.
+
+
+
+
+***Using Class-based view in Django***
+--> In app_name/models.py
+
+--> After creating this model, we need to run two commands in order to create Database.
+CODE:
+    python manage.py makemigrations
+    python manage.py migrate
+
+--> In app_name/views.py
+
+--> In app_name/urls.py
+
+--> In .html of templates
+
+NOTE: Django Class-Based Views (CBVs) make it easier to implement CRUD operations (Create, Read, Update, Delete) by providing built-in generic views. These views save time by handling common patterns with minimal code.
+
+a.) CreateView: create or add new entries in a table in the database. 
+b.) Retrieve Views: read, retrieve, search, or view existing entries as a list(ListView) or retrieve a particular entry in detail (DetailView) 
+c.) UpdateView: update or edit existing entries in a table in the database 
+d.) DeleteView: delete, deactivate, or remove existing entries in a table in the database 
+e.) FormView: render a form to template and handle data entered by user
+
+--> These operations power common features like user management, blog posts, and product catalogs, making Class-Based Views a powerful and reusable way to build dynamic web applications
