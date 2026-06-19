@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'T6_Django_Class_Based_view',   # Added the T6_Django_Class_Based_view
     'T7_Django_Templates',  # Added the T7_Django_Templates 
     'T7_Variables_Django_Templates',   # Added the T7_Variables_Django_Templates
+    'T7_Django_Template_Tags',    # Added the T7_Django_Template_Tags
     
     
 ]
