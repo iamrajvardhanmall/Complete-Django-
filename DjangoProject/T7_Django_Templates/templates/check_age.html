@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age checker</title>
+</head>
+
+<body>
+    <h1>Welcome to age checker</h1>
+    <form method="POST">
+
+        {% csrf_token %}
+        <label for="age">Enter Your Age:</label>
+        <input type="number" id="age" name="age" required>
+        <button type="submit">Check Age</button>
+
+    </form>
+
+    {% if age != None %}
+    <p>Your age is: {{ age }}</p>
+    {% if age >= 20 %}
+    <p>You are an adult.</p>
+    {% else %}
+    <p>You are not an adult.</p>
+    {% endif %}
+    {% endif %}
+
+</body>
+
+</html>
