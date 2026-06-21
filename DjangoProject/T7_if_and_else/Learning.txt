@@ -1,0 +1,46 @@
+--> The "if" tag in Django templates controls what content is displayed based on conditions. It can be combined with "elif (else-if)" and "else" to handle multiple conditional scenarios, allowing templates to show different content depending on various conditions. This provides a flexible way to dynamically render HTML based on data passed from views.
+
+Syntax:
+{% if condition1 %}
+    <!-- Code to execute if condition1 is True -->
+{% elif condition2 %}
+    <!-- Code to execute if condition2 is True -->
+{% else %}
+    <!-- Code to execute if none of the above conditions are True -->
+{% endif %}
+
+a.) condition1, condition2, etc., can be variables, comparisons, or any expression that evaluates to True or False.
+b.) {% elif %} and {% else %} are optional. Multiple {% elif %} blocks are allowed, but only one {% else %}.
+
+
+
+
+
+--> Example:
+{% if athlete_list %}
+    Number of athletes: {{ athlete_list|length }}
+{% elif athlete_in_locker_room_list %}
+    Athletes should be out of the locker room soon!
+{% else %}
+    No athletes.
+{% endif %}
+
+Explanation:
+a.) {% if athlete_list %}: If the athlete_list is not empty, the number of athletes is displayed using the {{ athlete_list|length }} filter.
+b.) {% elif athlete_in_locker_room_list %}: If athlete_list is empty but athlete_in_locker_room_list has a value, a message saying athletes 
+    should be out of the locker room soon is displayed.
+c.) {% else %}: If neither condition is true, the message "No athletes." is shown.
+
+
+
+
+CODE: In app_name/views.py
+
+CODE: In app_name/urls.py
+
+CODE: In templates of this app
+
+
+NOTE: The functionality of Django Template Tags, specifically {% if %}, can be enhanced using Boolean operators (and, or, not) to combine multiple 
+      conditions.
+

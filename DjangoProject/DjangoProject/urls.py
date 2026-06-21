@@ -37,5 +37,6 @@ urlpatterns = [
     path('T7_Variables_Django_Templates/', include('T7_Variables_Django_Templates.urls')),
     path('T7_Django_Template_Tags/', include('T7_Django_Template_Tags.urls')),
     path('T7_for_loop_Django_Template_Tags/', include('T7_for_loop_Django_Template_Tags.urls')),
+    path('T7_if_and_else/', include('T7_if_and_else.urls')),
     
 ]
