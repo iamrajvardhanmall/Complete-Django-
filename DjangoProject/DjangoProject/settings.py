@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'T7_Variables_Django_Templates',   # Added the T7_Variables_Django_Templates
     'T7_Django_Template_Tags',    # Added the T7_Django_Template_Tags
     'T7_for_loop_Django_Template_Tags',   # Added the T7_for_loop_Django_Template_Tags
-    'T7_if_and_else'     # Added the T7_if_and_else 
+    'T7_if_and_else',     # Added the T7_if_and_else 
+    'T7_Django_Boolean_Operations_and_Filters',    # Added the T7_Django_Boolean_Operations_and_Filters
     
     
 ]

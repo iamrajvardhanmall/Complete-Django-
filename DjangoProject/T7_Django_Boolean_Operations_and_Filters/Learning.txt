@@ -1,0 +1,333 @@
+**** Boolean Operators - Django Template Tags ****
+
+--> Django Template Tags support boolean operators to combine or negate conditions in if statements. These operators allow more complex 
+    conditional logic directly in templates. Boolean operator are:
+a.) and: Checks if all conditions are true.
+b.) or: Checks if at least one condition is true.
+c.) not: Negates the condition.
+
+
+
+
+Syntax:
+{% if [not] variable1 [and| or [not] variable2] %}   
+     <!-- statements -->
+{% endif %}
+a.) variable1 and variable2 can be context variables or values.
+b.) boolean_operator can be and or or. The not operator can be used to negate a single variable or expression.
+
+NOTE: Unlike standard Python, the Django template engine does not support the use of parentheses () to group expressions or change operator 
+      precedence.
+
+--> Example:
+{% if athlete_list and coach_list %}
+    Both athletes and coaches are available.
+{% endif %}
+
+{% if not athlete_list %}
+    There are no athletes.
+{% endif %}
+
+{% if athlete_list or coach_list %}
+    There are some athletes or some coaches.
+{% endif %}
+
+{% if not athlete_list or coach_list %}
+    There are no athletes or there are some coaches.
+{% endif %}
+
+{% if athlete_list and not coach_list %}
+    There are some athletes but no coaches.
+{% endif %}
+
+a.) {% if %} tag may include one or more {% elif %} clauses to handle additional conditions.
+b.) an optional {% else %} clause can be used to display content if all previous conditions fail.
+c.) these clauses allow flexible control of content rendering directly in templates.
+
+
+
+
+
+
+*** Example of Boolean Operators in Django ***
+CODE: In views.py
+CODE: In urls.py
+CODE: In boolean.html
+
+
+
+
+
+
+
+*** Common Boolean Operators in Django Templates ***
+--> Django Template Tags support boolean operators that enable complex conditional logic directly in templates. Operators are:
+1.) == (Equal to)
+--> Returns True if values on both side of the operator are equal.
+{% if somevar == "x" %}
+  somevar is equal to "x"
+{% endif %}
+
+2.) != (Not equal to)
+--> Returns True if the values are not equal.
+{% if somevar != "x" %}
+  somevar is not equal to "x"
+{% endif %}
+
+3.) < (Less than)
+--> Checks if the left value is less than the right value.
+{% if somevar < 100 %}
+  somevar is less than 100
+{% endif %}
+
+4.) > (Greater than)
+--> Checks if the left value is greater than the right value.
+{% if somevar > 0 %}
+  somevar is greater than 0
+{% endif %}
+
+5.) <= (Less than or equal to)
+--> Checks if the left value is less than or equal to the right value.
+{% if somevar <= 100 %}
+  somevar is less than or equal to 100
+{% endif %}
+
+6.) >= (Greater than or equal to)
+--> Checks if the left value is greater than or equal to the right value.
+{% if somevar >= 1 %}
+  somevar is greater than or equal to 1
+{% endif %}
+
+7.) in (Contained within)
+--> Tests if a value exists in a list, string, or QuerySet.
+{% if "bc" in "abcdef" %}
+  "bc" is found in "abcdef"
+{% endif %}
+
+{% if "hello" in greetings %}
+  "hello" is in the greetings list or set
+{% endif %}
+
+{% if user in users %}
+  user is present in the users QuerySet
+{% endif %}
+
+8.) not in (Not contained within)
+--> It's the negation (opposite) of the in operator.
+{% if "z" not in "abc" %}
+  "z" is not found in "abc"
+{% endif %}
+
+9.) is (Object identity)
+--> Tests if two values are the same object.
+{% if somevar is True %}
+  This appears if and only if somevar is True.
+{% endif %}
+
+{% if somevar is None %}
+  This appears if somevar is None, or if somevar is not found in the context.
+{% endif %}
+
+10.) is not (Negated object identity)
+--> Tests if two values are not the same object
+
+
+
+
+
+
+
+
+*** Django Template Filters ***
+--> Django Template Engine provides filters to transform the values of variables and tag arguments. Unlike template tags, which control logic or 
+    structure, filters are specifically used to modify or format variable values.
+
+--> Syntax: {{ variable_name | filter_name }}
+
+NOTE: Filters can be "chained", meaning the output of one filter can be applied to the next. {{ text | escape | linebreaks }} is a common idiom 
+      for escaping text contents, then converting line breaks to <p> tags.
+
+--> Example: {{ value | length }}
+             --> If value is ['a', 'b', 'c', 'd'], output will be 4
+
+
+
+*** Template Filters in Django ***
+--> Django Template Filters transform the values of variables and tag arguments. Some most common template filters are listed below with example:
+1.) add: It is used to add an argument to the value.
+--> Example: {{ value | add:"2"}}
+--> If value is 4, then the output will be 6. This filter is used to increment a variable in django Templates.
+
+2.) capfirst: It is used to capitalize the first character of the value. If the first character is not a letter, this filter has no effect.
+--> Example: {{ value | capfirst }}
+--> If value is "rahul", the output will be "Rahul".
+
+3.) date: It is used to format a date according to the given format.
+--> Example: {{ value | date:"D d M Y" }}
+--> If value is a datetime object (e.g., the result of datetime.datetime.now()), the output will be the string 'Thu 06 Feb 2020'.
+
+4.) default: It is used to give a default value to a variable. If variable evaluates to False, it will use the default argument given else the 
+    variable value itself.
+--> Example: {{ value | default:"nothing"}}
+--> If value is "" (the empty string), the output will be nothing.
+
+5.) escape: The escape filter converts special HTML characters into safe representations to prevent rendering as HTML.
+--> < is converted to <
+    > is converted to >
+    ' (single quote) is converted to &#x27;
+    " (double quote) is converted to "
+    & is converted to &
+--> Example: {{ title | escape }}
+
+6.) length: It is used to return the length of the value. This works for both strings and lists.
+--> Example: {{ value | length }}
+--> If value is ['a', 'b', 'c', 'd'] or "abcd", the output will be 4.
+
+7.) lower: It is used to converts a string into all lowercase.
+--> Example: {{ value | lower }}
+--> If value is My Name is Rahul, the output will be my name is rahul.
+
+8.) upper: It is used to convert a string into all uppercase.
+--> Example: {{ value | upper }}
+--> If value is "Rahul Kumar", the output will be "RAHUL KUMAR".
+
+9.) title: It is used to convert a string into titlecase by making words start with an uppercase character and the remaining characters lowercase. 
+    This filter makes no effort to keep “trivial words” in lowercase.
+--> Example: {{ value | title }}
+--> If value is "my FIRST post", the output will be "My First Post".
+
+10.) join: It is used to join a list with a string, like Python’s str.join(list).
+--> Example: {{ value | join:" // "}}
+--> If value is the list ['a', 'b', 'c'], the output will be the string "a // b // c".
+
+11.) addslashes: It is used to add slashes before quotes. Useful for escaping strings in CSV.
+--> Example: {{ value | addslashes }}
+--> If value is "I'm Rahul", the output will be "I\'m Rahul".
+
+12.) center: It is used to center the value in a field of a given width.
+--> Example: "{{ value | center:"15}}"
+--> If value is "Rahul", the output will be " Rahul ". The text "Rahul" is centered within a 15-character-wide field.
+Note: Total length is 15, including spaces on both sides.
+
+13.) cut: It is used to remove all values of arg from the given string.
+--> Example: {{ value | cut:" " }}
+--> If value is "String with spaces", the output will be "Stringwithspaces".
+
+14.) dictsort: It takes a list of dictionaries and returns that list sorted by the key given in the argument.
+--> Example: {{ value | dictsort:"name" }}
+--> If value is:
+                [
+                    {'name': 'zed', 'age': 19},
+                    {'name': 'amy', 'age': 22},
+                    {'name': 'joe', 'age': 31},
+                ]
+    then the output would be:
+                [
+                    {'name': 'amy', 'age': 22},
+                    {'name': 'joe', 'age': 31},
+                    {'name': 'zed', 'age': 19},
+                ] 
+
+15.) divisibleby: It returns True if the value is divisible by the argument.
+--> Example: {{ value | divisibleby:"3" }}
+--> If value is 21, the output would be True.
+
+16.) filesizeformat: It is used to format the value like a ‘human-readable’ file size (i.e. '13 KB', '4.1 MB', '102 bytes', etc.).
+--> Example: {{ value | filesizeformat }}
+--> If value is 123456789, the output would be 117.7 MB.
+NOTE: The filesizeformat filter converts a file size (in bytes) into a human-readable format such as KB, MB, GB, etc.
+--> How it Works: 
+    a.) Input should be a number representing bytes.
+    b.) Django automatically converts the value into the most appropriate unit:
+        i.) Bytes (B)
+        ii.) Kilobytes (KB)
+        iii.) Megabytes (MB)
+        iv.) Gigabytes (GB)
+        v.) Terabytes (TB)
+--> More Example:
+a.) {{ 102|filesizeformat }}
+    Output: 102 bytes
+b.) {{ 2048|filesizeformat }}
+    Output: 2.0 KB
+
+17.) first: It is used to return the first item in a list.
+--> Example: {{ value | first }}
+--> If value is the list ['a', 'b', 'c'], the output will be 'a'.
+
+18.) last: It is used to return the last item in a list.
+--> Example: {{ value | last }}
+--> If value is the list ['a', 'b', 'c', 'd'], the output will be the string "d".
+
+19.) linenumbers: It is used to display text with line numbers.
+--> Example: {{ value | linenumbers }}
+--> If value is:
+                one
+                two
+                three
+    the output will be HTML-formatted content with line numbers, not simple numbered lines.
+                1. one
+                2. two
+                3. three
+
+20.) make_list: It is used to return the value turned into a list. For a string, it’s a list of characters. For an integer, the argument is cast 
+     to a string before creating a list.
+--> Example: {{ value | make_list }}
+--> If value is the string "Rahul", the output would be the list ['R', 'a', 'h', 'u', 'l']. If value is 123, the output will be the list 
+    ['1', '2', '3'].
+
+21.) random: It is used to return a random item from the given list.
+--> Example: {{ value | random }}
+--> If value is the list ['a', 'b', 'c', 'd'], the output could be "b".
+
+22.) slice: It is used to return a slice of the list.
+--> Syntax: {{ value|slice:"start:end" }}
+        start → Starting index (inclusive)
+        end → Ending index (exclusive)
+--> Example: {{ some_list | slice:":2"}}
+--> If some_list is ['a', 'b', 'c'], the output will be ['a', 'b'].
+
+23.) slugify: The slugify filter converts text into a URL-friendly slug. A slug is a simplified version of a string that is commonly used in URLs.
+--> Syntax: {{ value | slugify }}
+--> What slugify Does
+    Given a string, it:
+    1.) Converts all letters to lowercase
+    2.) Replaces spaces with hyphens (-)
+    3.) Removes special characters that are not:
+        a.) letters (a-z)
+        b.) numbers (0-9)
+        c.) underscores (_)
+        d.) hyphens (-)
+    4.) Removes leading and trailing whitespace
+--> Example: If value is "rahul is a slug", the output will be "rahul-is-a-slug".
+
+24.) wordcount:It is used to return the number of words.
+--> Syntax: {{ value | wordcount }}
+--> Example: If value is "Rahul is a slug", the output will be 4.
+
+25.) time: It is used to format a time according to the given format.
+--> Syntax: {{ value|time:"format" }}
+            a.) value should be a time or datetime object.
+            b.) "format" specifies how the time should be displayed.
+--> Example: {{ value | time:"H:i" }}
+--> If value is equivalent to datetime.datetime.now(), and the current time is: 2026-06-22 01:23:45, the output will be the string "01:23".
+
+26.) timesince: It is used to format a date as the time since that date (e.g., “4 days, 6 hours”).
+--> Example: {{ blog_date | timesince:comment_date }}
+--> if blog_date is a date instance representing midnight on 1 June 2006, and comment_date is a date instance for 08:00 on 1 June 2006, then the 
+    following would return “8 hours”.
+
+27.) unordered_list: It is used to recursively take a self-nested list and returns an HTML unordered list – WITHOUT opening and closing <ul> tags.
+--> Example: {{ var | unordered_list }}
+--> if var contains ['States', ['Kansas', ['Lawrence', 'Topeka'], 'Illinois']], then {{ var|unordered_list }} would return: 
+    O/P:
+        <li>States
+        <ul>
+                <li>Kansas
+                <ul>
+                        <li>Lawrence</li>
+                        <li>Topeka</li>
+                </ul>
+                </li>
+                <li>Illinois</li>
+        </ul>
+        </li>

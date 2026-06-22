@@ -38,5 +38,6 @@ urlpatterns = [
     path('T7_Django_Template_Tags/', include('T7_Django_Template_Tags.urls')),
     path('T7_for_loop_Django_Template_Tags/', include('T7_for_loop_Django_Template_Tags.urls')),
     path('T7_if_and_else/', include('T7_if_and_else.urls')),
+    path('T7_Django_Boolean_Operations_and_Filters/', include('T7_Django_Boolean_Operations_and_Filters.urls')),
     
 ]
