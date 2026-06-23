@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'T7_for_loop_Django_Template_Tags',   # Added the T7_for_loop_Django_Template_Tags
     'T7_if_and_else',     # Added the T7_if_and_else 
     'T7_Django_Boolean_Operations_and_Filters',    # Added the T7_Django_Boolean_Operations_and_Filters
+    'T8_Django_Forms',   # Added the T8_Django_Forms
     
     
 ]
