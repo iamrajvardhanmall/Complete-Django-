@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+     rel="stylesheet"
+     href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        .i-am-centered {
+            margin: auto;
+            max-width: 300px;
+            padding-top: 20%;
+        }
+    </style>
+    <title>Form Input</title>
+</head>
+
+<body>
+
+    <div class="i-am-centered">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>First Name</label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label>Last Name:</label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label>Roll Number:</label>
+                {{ form.roll_number }}
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                {{ form.password }}
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Manual rendering allows full control over the HTML structure.
+    Bootstrap classes (form-group, btn, btn-primary) improve the visual design automatically.
+    Custom CSS (.i-am-centered) centers the form on the page and adjusts spacing.
+    Each form field ({{ form.field_name }}) maintains validation and widgets defined in Django. -->
+
+
+
+    
+
+    <!-- {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.subject.errors }}
+        <label for="{{ form.subject.id_for_label }}">Email subject:</label>
+        {{ form.subject }}
+    </div> -->
+
+</body>
+
+</html>

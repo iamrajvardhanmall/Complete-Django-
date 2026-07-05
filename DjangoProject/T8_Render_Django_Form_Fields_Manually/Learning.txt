@@ -1,0 +1,83 @@
+--> Rendering Django form fields manually allows full control over how each input element looks and behaves in the HTML.
+a.) Each field is written separately in the template, giving complete control over layout and styling.
+b.) Django provides built-in methods to render form fields automatically when customization is not required.
+c.) Manual rendering is useful when applying custom CSS, special UI designs, or specific HTML structures.
+d.) Offers flexibility for creating forms that match a project’s design needs.
+
+
+
+
+
+
+***Built-in Methods to Display Forms***
+--> A form provides three built-in methods to render fields:
+a.) {{ form.as_table }} will render them as table cells wrapped in <tr> tags
+b.) {{ form.as_p }} will render them wrapped in <p> tags
+c.) {{ form.as_ul }} will render them wrapped in <li> tags
+--> These methods automatically generate HTML for the form, making quick form rendering straightforward.
+
+
+
+
+
+***Rendering Form fields manually***
+CODE: In forms.py
+
+--> To render this form in a view, in views.py, create a home_view: 
+CODE: In views.py
+
+--> templates/home.html to render the form and display it to users:
+
+
+
+
+
+
+
+***Customizing Form Appearance***
+--> The form works correctly, but the default visuals may be basic. To enhance the appearance, form fields can be rendered manually in the 
+    template. Each field is available as an attribute of the form using {{ form.field_name }}, and it will be rendered appropriately in a Django 
+    template.
+--> Non-field errors can be displayed as follows:
+CODE:
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.subject.errors }}
+        <label for="{{ form.subject.id_for_label }}">Email subject:</label>
+        {{ form.subject }}
+    </div>
+
+
+
+
+
+
+
+***Advanced Customization of Django Form Fields***
+--> The previous example showed basic styling using Bootstrap. Form fields can be customized further using various CSS techniques and methods to 
+    achieve advanced layouts and effects. Each field in a Django template is represented as a BoundField, which provides several useful attributes:
+1.) {{ field }}: Renders the form field as HTML.
+2.) {{ field.label }}: The label of the field, e.g., Email address.
+3.) {{ field.label_tag }}: The field’s label wrapped in the appropriate HTML tag, including the form’s label_suffix. Example:
+
+        <label for="id_email">Email address:</label>
+
+4.) {{ field.id_for_label }}: The ID used for the field (id_email in the example above). Useful for manually constructing labels or inline JavaScript without hardcoding the ID.
+5.) {{ field.value }}: The current value of the field, e.g., someone@example.com.
+6.) {{ field.html_name }}: The name attribute used in the input element. It respects the form prefix if one is set.
+7.) {{ field.help_text }}: Any help text associated with the field.
+8.) {{ field.errors }}: Outputs a <ul class="errorlist"> containing validation errors for this field.
+
+        {% for error in field.errors %}
+            <div class="error">{{ error }}</div>
+        {% endfor %}
+
+9.) {{ field.is_hidden }}: Returns True if the field is hidden, False otherwise. Useful for conditional checks
+
+        {% if field.is_hidden %}
+            {# Handle hidden fields differently #}
+        {% endif %}
+
+10.) {{ field.field }}: The Field instance from the form class that this BoundField wraps. It allows access to field attributes.
+
+        {{ char_field.field.max_length }}

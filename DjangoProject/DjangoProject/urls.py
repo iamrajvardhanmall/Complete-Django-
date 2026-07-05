@@ -40,5 +40,5 @@ urlpatterns = [
     path('T7_if_and_else/', include('T7_if_and_else.urls')),
     path('T7_Django_Boolean_Operations_and_Filters/', include('T7_Django_Boolean_Operations_and_Filters.urls')),
     path('T8_Django_Forms/', include('T8_Django_Forms.urls')),
-    
+    path('T8_Render_Django_Form_Fields_Manually/', include('T8_Render_Django_Form_Fields_Manually.urls')),
 ]

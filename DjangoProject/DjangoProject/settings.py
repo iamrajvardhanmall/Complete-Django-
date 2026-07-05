@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'T7_if_and_else',     # Added the T7_if_and_else 
     'T7_Django_Boolean_Operations_and_Filters',    # Added the T7_Django_Boolean_Operations_and_Filters
     'T8_Django_Forms',   # Added the T8_Django_Forms
+    'T8_Render_Django_Form_Fields_Manually',  # Added the T8_Render_Django_Form_Fields_Manually
     
     
 ]
