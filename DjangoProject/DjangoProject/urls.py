@@ -41,4 +41,6 @@ urlpatterns = [
     path('T7_Django_Boolean_Operations_and_Filters/', include('T7_Django_Boolean_Operations_and_Filters.urls')),
     path('T8_Django_Forms/', include('T8_Django_Forms.urls')),
     path('T8_Render_Django_Form_Fields_Manually/', include('T8_Render_Django_Form_Fields_Manually.urls')),
+    path('T8_Handling_HTML_Forms_in_Django_GET_and_POST_Methods/', include('T8_Handling_HTML_Forms_in_Django_GET_and_POST_Methods.urls')),
+    
 ]

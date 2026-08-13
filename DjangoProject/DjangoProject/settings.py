@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'T7_Django_Boolean_Operations_and_Filters',    # Added the T7_Django_Boolean_Operations_and_Filters
     'T8_Django_Forms',   # Added the T8_Django_Forms
     'T8_Render_Django_Form_Fields_Manually',  # Added the T8_Render_Django_Form_Fields_Manually
+    'T8_Handling_HTML_Forms_in_Django_GET_and_POST_Methods',  # Added the T8_Handling_HTML_Forms_in_Django_GET_and_POST_Methods
     
     
 ]

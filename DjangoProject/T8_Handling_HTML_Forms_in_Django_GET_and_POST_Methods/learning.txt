@@ -1,0 +1,62 @@
+Handling HTML forms is a fundamental part of web development. In Django, forms allow users to submit data to the server for processing, whether 
+saving it to a database or retrieving information, while leveraging Django’s built-in form handling capabilities.
+
+
+***HTML Form***
+--> An HTML form is a collection of input elements wrapped inside <form>...</form> tags. 
+--> Forms let users:
+a.) Enter text
+b.) Select options
+c.) Interact with checkboxes, radio buttons, or dropdowns
+d.) Submit data to the server for processing
+
+--> The server then handles this data, often involving database operations or custom logic. Django fully supports HTML forms and simplifies both 
+    rendering and processing of form data using views.
+
+
+
+
+***Understanding GET and POST Methods***
+1.) GET Methods
+--> Appends form data to the URL as query parameters.
+--> Ideal for search forms or filters, where data retrieval doesn’t modify the server state.
+Example urls: https://docs.djangoproject.com/en/5.2/search/?q=forms
+
+2.) POST Method
+--> Sends form data in the HTTP request body.
+--> Used when submitting data that modifies the server, like updating a database.
+--> Requires CSRF protection in Django using {% csrf_token %}.
+
+**Rendering a Simple HTML Form in Django**
+--> Consider a app named '...' having an app named 'T8_Handling_HTML_Forms_in_Django_GET_and_POST_Methods'.
+
+Step 1: Create the HTML Form
+Create home.html in T8_Handling_HTML_Forms_in_Django_GET_and_POST_Methods/templates/:
+CODE: In home.html
+
+Step 2: Configure URLs
+CODE: In app_name/urls.py:
+
+Step 3: Create the View
+In app_name/views.py:
+
+Step 4: Run the Server
+python manage.py runserver
+
+*Handling GET Request Data in Views*
+--> Submitting the form will append data to the URL, which can be accessed in the view using request.GET.
+--> After entering a name and submitting the form, the data will be printed in the terminal:
+
+NOTE: request.GET returns a QueryDict object. While it behaves similarly to a Python dictionary, it is specifically designed to handle multiple 
+      values for the same key. For example, to retrieve a single value, you use .get(), but to retrieve a list of multiple values for one key, 
+      you must use the .getlist() method.
+
+
+**Handling POST Requests**
+CODE: In templates/post_home.html
+--> Django requires the {% csrf_token %} template tag inside all POST forms for security to prevent Cross-Site Request Forgery attacks.
+CODE: In view.py
+--> After submitting the form, result will be shown in terminal
+
+NOTE: This way one can use this data for querying into the database or for processing using some logical operation and pass using the context 
+      dictionary to the template.
